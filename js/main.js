@@ -1,3 +1,10 @@
+// check colors in local storage
+
+let mainColors = localStorage.getItem("color-option");
+if (mainColors !== null) {
+  document.documentElement.style.setProperty("--main--color", mainColors);
+}
+
 // select fa-gerar spin
 let myGear = document.getElementById("fa-gear");
 myGear.onclick = function () {
@@ -15,7 +22,9 @@ colorsLi.forEach((li) => {
 
     document.documentElement.style.setProperty(
       "--main--color",
-      e.target.dataset.color
+      e.target.dataset.color,
+      // set color in local storage
+      localStorage.setItem("color-option", e.target.dataset.color)
     );
   });
 });
