@@ -1,3 +1,11 @@
+// on  chek the local storage
+
+let storeColor = localStorage.getItem("saving-color");
+
+if (storeColor !== null) {
+  document.documentElement.style.setProperty("--main--color", storeColor);
+}
+
 //onclick toggle setting-box
 let gearSeting = document.getElementById("fa-gear");
 gearSeting.onclick = function () {
@@ -8,11 +16,16 @@ gearSeting.onclick = function () {
 // switch color
 
 const clorLi = document.querySelectorAll(".color-list li");
-console.log(clorLi);
+
 clorLi.forEach((li) => {
   li.addEventListener("click", (e) => {
     // set color on root --main--color
-   document.documentElement.style.setProperty("--main--color",e.target.dataset.color)
+    document.documentElement.style.setProperty(
+      "--main--color",
+      e.target.dataset.color
+    );
+    // set color on local storage
+    localStorage.setItem("saving-color", e.target.dataset.color);
   });
 });
 
