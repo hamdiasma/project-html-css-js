@@ -26,6 +26,12 @@ clorLi.forEach((li) => {
     );
     // set color on local storage
     localStorage.setItem("saving-color", e.target.dataset.color);
+    // remove all active class from all children
+    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
+      element.classList.remove("active");
+    });
+    // add active to element clicked
+    e.target.classList.add("active");
   });
 });
 
