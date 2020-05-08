@@ -1,7 +1,12 @@
+// toogle gear spin
+const myGear = document.getElementById("fa-gear");
+myGear.addEventListener("click", () => {
+  myGear.classList.toggle("fa-spin");
+  //toogle settung Box (open)
+  document.querySelector(".setting-box").classList.toggle("open");
+});
 // select landing page
-
-let landngPage = document.getElementById("landing-page");
-
+const landngPage = document.getElementById("landing-page");
 // get array of images
 
 const myImageArray = [
