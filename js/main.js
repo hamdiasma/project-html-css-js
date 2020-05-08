@@ -86,7 +86,18 @@ function randomizeImages() {
 }
 randomizeImages();
 
+//active classe to links
 
+const myLinks = document.querySelectorAll(".page li a");
+//console.log(myLinks)
+myLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    document.querySelectorAll(".page .active").forEach((act) => {
+      act.classList.remove("active");
+    });
+    link.classList.add("active");
+  });
+});
 
 // localStorage.removeItem("storeColor")
 // console.log(localStorage.getItem("storeColor"))
