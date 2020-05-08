@@ -50,12 +50,15 @@ const myButtons = document.querySelectorAll(".option-box button");
 myButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     // remove all active class
- btn.parentElement.querySelectorAll(".active").forEach(act=>{
-   act.classList.remove("active")
- })
- btn.classList.add("active")
-
-
+    btn.parentElement.querySelectorAll(".active").forEach((act) => {
+      act.classList.remove("active");
+    });
+    btn.classList.add("active");
+    {
+      btn.value === "yes"
+        ? (randomizeImages(), console.log("yes"))
+        : (clearInterval(mySetInterval), console.log("no"));
+    }
   });
 });
 
@@ -73,10 +76,17 @@ const myImageArray = [
   "07.jpg",
   "08.jpg",
 ];
-setInterval(() => {
-  let randomImage = Math.floor(Math.random() * myImageArray.length);
-  landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
-}, 10000);
+
+let mySetInterval;
+function randomizeImages() {
+  mySetInterval = setInterval(() => {
+    let randomImage = Math.floor(Math.random() * myImageArray.length);
+    landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
+  }, 1000);
+}
+randomizeImages();
+
+
 
 // localStorage.removeItem("storeColor")
 // console.log(localStorage.getItem("storeColor"))
