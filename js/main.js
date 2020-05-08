@@ -14,7 +14,6 @@ if (storeColors !== null) {
   });
 }
 
-
 // toogle gear spin
 const myGear = document.getElementById("fa-gear");
 myGear.addEventListener("click", () => {
@@ -40,6 +39,23 @@ myColorsLi.forEach((li) => {
     });
     // add clsee active to the color in root
     li.classList.add("active");
+  });
+});
+
+// option-box button option on background image (on/off)
+
+const myButtons = document.querySelectorAll(".option-box button");
+/*console.log(myButton)*/
+
+myButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // remove all active class
+ btn.parentElement.querySelectorAll(".active").forEach(act=>{
+   act.classList.remove("active")
+ })
+ btn.classList.add("active")
+
+
   });
 });
 
