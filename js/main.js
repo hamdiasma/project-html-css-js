@@ -1,3 +1,20 @@
+// local storage color
+let storeColors = localStorage.getItem("storeColor");
+if (storeColors !== null) {
+  // console.log(storeColors)
+  document.documentElement.style.setProperty("--main--color", storeColors);
+  // chek for active classe
+  // remove all active classe from color list item
+  document.querySelectorAll(".color-list li").forEach((elment) => {
+    elment.classList.remove("active");
+    // add active clasee local stprage
+    if (elment.getAttribute("value") === storeColors) {
+      elment.classList.add("active");
+    }
+  });
+}
+
+
 // toogle gear spin
 const myGear = document.getElementById("fa-gear");
 myGear.addEventListener("click", () => {
@@ -16,6 +33,13 @@ myColorsLi.forEach((li) => {
       "--main--color",
       li.getAttribute("value")
     );
+    localStorage.setItem("storeColor", li.getAttribute("value"));
+    // remove all active classe from color list
+    li.parentElement.querySelectorAll(".color-list li").forEach((elment) => {
+      elment.classList.remove("active");
+    });
+    // add clsee active to the color in root
+    li.classList.add("active");
   });
 });
 
@@ -37,3 +61,6 @@ setInterval(() => {
   let randomImage = Math.floor(Math.random() * myImageArray.length);
   landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
 }, 10000);
+
+// localStorage.removeItem("storeColor")
+// console.log(localStorage.getItem("storeColor"))
