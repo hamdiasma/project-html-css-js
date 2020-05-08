@@ -5,6 +5,20 @@ myGear.addEventListener("click", () => {
   //toogle settung Box (open)
   document.querySelector(".setting-box").classList.toggle("open");
 });
+
+// switch color
+const myColorsLi = document.querySelectorAll(".color-list li");
+myColorsLi.forEach((li) => {
+  li.addEventListener("click", () => {
+    //  console.log(li.getAttribute("value"));
+    //set color on root --main--color
+    document.documentElement.style.setProperty(
+      "--main--color",
+      li.getAttribute("value")
+    );
+  });
+});
+
 // select landing page
 const landngPage = document.getElementById("landing-page");
 // get array of images
