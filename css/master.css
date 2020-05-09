@@ -9,6 +9,13 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.container {
+  width: 90%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
 /*start setting-box*/
 .setting-box {
   position: fixed;
@@ -62,7 +69,6 @@ body {
   opacity: 0.5;
   display: inline-block;
   transition: 0.3s;
-  
 }
 .setting-box .settings-container .option-box ul li.active {
   opacity: 1;
@@ -95,12 +101,11 @@ body {
   color: white;
   cursor: pointer;
   border-radius: 7px;
-  border: 1px solid var(--main--color);;
+  border: 1px solid var(--main--color);
 }
 
 .setting-box .option-box button.active {
   opacity: 1;
-
 }
 /*start setting-box*/
 
@@ -184,3 +189,33 @@ body {
 
 /*end landing-page*/
 
+/*start about-us*/
+.about-us {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+}
+.about-us .info-box {
+  flex: 1;
+  padding: 30px
+}
+.about-us .info-box h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main--color);
+  margin: 0 0 10px ;
+}
+.about-us .info-box p {
+  line-height: 2;
+ color:  #867f7f;
+ margin: auto;
+}
+.about-us .image-box {
+  flex: 1;
+  text-align: center;
+}
+.about-us .image-box img {
+  width: 250px;
+}
+
+/*end about-use*/
