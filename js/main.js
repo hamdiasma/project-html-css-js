@@ -13,6 +13,24 @@ if (storeColors !== null) {
     }
   });
 }
+let bacgroundOption = true;
+let mySetInterval;
+
+// chek local storage back ground color
+let storeImage = localStorage.getItem("storeImage");
+if (storeImage !== null) {
+  document.querySelectorAll(".option-box button").forEach((btn) => {
+    btn.classList.remove("active");
+
+    if (storeImage === "true") {
+      bacgroundOption = true;
+      document.getElementById("yes").classList.add("active");
+    } else {
+      bacgroundOption = false;
+      document.querySelector(".option-box .no").classList.add("active");
+    }
+  });
+}
 
 // toogle gear spin
 const myGear = document.getElementById("fa-gear");
@@ -54,10 +72,19 @@ myButtons.forEach((btn) => {
       act.classList.remove("active");
     });
     btn.classList.add("active");
-    {
-      btn.value === "yes"
-        ? (randomizeImages(), console.log("yes"))
-        : (clearInterval(mySetInterval), console.log("no"));
+    if (btn.value === "yes") {
+      //console.log("yes");
+      bacgroundOption = true;
+      // console.log(typeof(bacgroundOption));
+      randomizeImages();
+      localStorage.setItem("storeImage", true);
+    } else {
+      //console.log("no");
+      bacgroundOption = false;
+      clearInterval(mySetInterval);
+      localStorage.setItem("storeImage", false);
+
+      //console.log(typeof(bacgroundOption));
     }
   });
 });
@@ -77,12 +104,13 @@ const myImageArray = [
   "08.jpg",
 ];
 
-let mySetInterval;
 function randomizeImages() {
-  mySetInterval = setInterval(() => {
-    let randomImage = Math.floor(Math.random() * myImageArray.length);
-    landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
-  }, 1000);
+  if (bacgroundOption === true) {
+    mySetInterval = setInterval(() => {
+      let randomImage = Math.floor(Math.random() * myImageArray.length);
+      landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
+    }, 1000);
+  }
 }
 randomizeImages();
 
@@ -101,3 +129,4 @@ myLinks.forEach((link) => {
 
 // localStorage.removeItem("storeColor")
 // console.log(localStorage.getItem("storeColor"))
+//localStorage.removeItem("storeImage")
