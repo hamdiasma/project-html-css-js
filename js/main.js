@@ -180,11 +180,24 @@ const myGallery = document.querySelectorAll(".gallery img");
 
 myGallery.forEach((img) => {
   img.addEventListener("click", (e) => {
-    // create overlay elment
-    let overlay = document.createElement("div")
+    // create overlay el2ment
+    let overlay = document.createElement("div");
     //add class to overlay
-    overlay.className="popup-overlay"
+    overlay.className = "popup-overlay";
     //append overlay tothe body
-    document.body.appendChild(overlay)
+    document.body.appendChild(overlay);
+    // create the Popup
+    let popupBox = document.createElement("div");
+    // add class to popupBox
+    popupBox.className = "popup-box";
+    // create the image
+    let popupImage = document.createElement("img");
+    // set image source
+    popupImage.src = img.src;
+    // add image to popup Box
+    popupBox.appendChild(popupImage);
+    // append te popup box to body
+
+    document.body.appendChild(popupBox)
   });
 });
