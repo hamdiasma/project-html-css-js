@@ -190,6 +190,16 @@ myGallery.forEach((img) => {
     let popupBox = document.createElement("div");
     // add class to popupBox
     popupBox.className = "popup-box";
+    //add altenate text alt=""
+    if (img.alt !== null) {
+      // create heading
+      let imageheading = document.createElement("h3");
+      // cfeate texte for heading
+      let imageText = document.createTextNode(img.alt);
+      imageheading.appendChild(imageText);
+      // append the heading to the popup box
+      popupBox.appendChild(imageheading);
+    }
     // create the image
     let popupImage = document.createElement("img");
     // set image source
@@ -198,6 +208,25 @@ myGallery.forEach((img) => {
     popupBox.appendChild(popupImage);
     // append te popup box to body
 
-    document.body.appendChild(popupBox)
+    document.body.appendChild(popupBox);
+    // create the close span
+    let closeButn = document.createElement("span");
+    // create the close button text
+    let closeButtontext = document.createTextNode("X");
+    closeButn.appendChild(closeButtontext);
+    // add class to closeButn
+    closeButn.className = "close-butn";
+    // add closeButn to  popupBox
+    popupBox.appendChild(closeButn);
+    document.querySelector(".close-butn").addEventListener("click", (e) => {
+      if ((e.target.className = "close-butn")) {
+        // remove the current -popup
+       e.target.parentNode.remove();
+        // remove overlay
+       document.querySelector(".popup-overlay").remove();
+      }
+    });
+    
   });
 });
+// close popup
