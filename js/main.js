@@ -130,3 +130,47 @@ myLinks.forEach((link) => {
 // localStorage.removeItem("storeColor")
 // console.log(localStorage.getItem("storeColor"))
 //localStorage.removeItem("storeImage")
+
+// select skillis-selector
+let ourSkills = document.querySelector(".skills");
+//console.log(ourSkills)
+let ourAbout = document.querySelector(".about-us");
+//console.log(ourSkills.offsetTop)
+window.onscroll = function () {
+  // skills offsetTop (top de skill)
+  let skillisOffsetTop = ourSkills.offsetTop;
+  let ourAboutTop = ourAbout.offsetTop;
+  // console.log(ourAboutTop);
+  // console.log(skillisOffsetTop);
+  // console.log( ourAbout.offsetHeight);
+  // console.log(document.body.offsetHeight)
+  // console.log(document.body.offsetHeight - ourSkills.offsetHeight)
+  // console.log(window.pageYOffset)
+  //skills outer height ()skills
+  let skillisOuterHeight = ourSkills.offsetHeight;
+  // console.log(skillisOuterHeight);
+  // // window height
+  let windowHeight = window.innerHeight;
+  let windowScrollTop = window.pageYOffset;
+  // console.log(windowScrollTop);
+  // console.log(windowHeight);
+  // console.log(ourAboutTop);
+  // console.log(skillisOuterHeight);
+
+  // // window scroll top
+  // let windowScrollTop = window.pageYOffset;
+  // console.log(windowScrollTop)
+  let allSkills = document.querySelectorAll(".skill-box .skill-progress span");
+  if (windowScrollTop > ourAboutTop + skillisOuterHeight - windowHeight) {
+    //console.log("hello hamdi");
+
+    allSkills.forEach((prog) => {
+      //prog.style.width = prog.dataset.progress la mm chose;
+      prog.style.width = prog.getAttribute("value");
+    });
+  } else {
+    allSkills.forEach((prog) => {
+      prog.style.width = 0;
+    });
+  }
+};
