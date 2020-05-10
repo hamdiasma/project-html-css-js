@@ -373,7 +373,7 @@ body {
 border-radius: 50%;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
   .popup-box {
     width: 90%;
   }
