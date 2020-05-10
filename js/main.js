@@ -174,3 +174,17 @@ window.onscroll = function () {
     });
   }
 };
+// galery
+// create Popup width images
+const myGallery = document.querySelectorAll(".gallery img");
+
+myGallery.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    // create overlay elment
+    let overlay = document.createElement("div")
+    //add class to overlay
+    overlay.className="popup-overlay"
+    //append overlay tothe body
+    document.body.appendChild(overlay)
+  });
+});
