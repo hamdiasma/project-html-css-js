@@ -190,6 +190,7 @@ body {
 /*end landing-page*/
 
 /*start about-us*/
+
 .about-us {
   display: flex;
 }
@@ -210,12 +211,32 @@ body {
 }
 .about-us .image-box {
   flex: 1;
-  text-align: center;
+  text-align: right;
 }
 .about-us .image-box img {
   width: 250px;
 }
 
+@media (max-width: 600px) {
+  .about-us {
+    display: block;
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-us .info-box {
+  }
+  .about-us .info-box p {
+    line-height: 2;
+    color: #867f7f;
+    margin: auto;
+  }
+  .about-us .image-box {
+    text-align: center;
+  }
+  .about-us .image-box img {
+    width: 70%;
+  }
+}
 /*end about-use*/
 /*end skills*/
 .skills {
@@ -244,7 +265,7 @@ body {
   text-align: center;
 }
 .skills .skill-progress {
-width: calc(100% - 150px);
+  width: calc(100% - 150px);
   background-color: #eeeeee57;
   height: 30px;
   border-radius: 6px;
@@ -253,12 +274,13 @@ width: calc(100% - 150px);
 }
 .skills .skill-progress span {
   position: absolute;
-   top: 0;
-   left: 0;
-   width: 70%;
-   height: 100%;
-   background-color: var(--main--color);
-   text-align: right;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--main--color);
+  text-align: right;
   line-height: 70px;
-  }
+  transition: all 0.4s ease-in-out;
+}
 /*end skills*/
