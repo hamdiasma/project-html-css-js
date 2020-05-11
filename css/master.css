@@ -510,40 +510,38 @@ body {
 .features .feat-box img {
   border-radius: 50%;
   width: 100px;
-  background-color: #EEE;
-  border: 1px solid #CCC;
+  background-color: #eee;
+  border: 1px solid #ccc;
   padding: 4px;
 }
 
-
-.features .feat-box h4{
+.features .feat-box h4 {
   font-size: 20px;
   margin: 10px 0 50px;
   position: relative;
-  }
-  .features .feat-box h4::before{
-    content: "";
-    width: 70px;
-    height: 3px;
-    background-color: var(--main--color);
-    position: absolute;
-    left: 50%;
-    margin-left: -35px;
-    z-index: 5;
-    bottom: -26px
-  }
-
-
-.features .feat-box p{
-width: 80%;
-margin: auto;
-line-height: 1.7;
-color: #777;
+}
+.features .feat-box h4::before {
+  content: "";
+  width: 70px;
+  height: 3px;
+  background-color: var(--main--color);
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  z-index: 5;
+  bottom: -26px;
 }
 
-@media(max-width:872px){
+.features .feat-box p {
+  width: 80%;
+  margin: auto;
+  line-height: 1.7;
+  color: #777;
+}
+
+@media (max-width: 872px) {
   .features .feat-box {
-    width: calc(100% );
+    width: calc(100%);
     float: left;
     text-align: center;
     margin-bottom: 40px;
@@ -552,9 +550,85 @@ color: #777;
   .features .feat-box img {
     border-radius: 50%;
     width: 200px;
-    background-color: #EEE;
-    border: 1px solid #CCC;
+    background-color: #eee;
+    border: 1px solid #ccc;
     padding: 4px;
   }
 }
 /* start features */
+/* start tetimonals */
+
+.tetimonals {
+ 
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.tetimonals::before {
+  content: "";
+  width: 50%;
+  position: absolute;
+  background-color: var(--main--color);
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.tetimonals::after {
+  content: "";
+  width: 50%;
+  position: absolute;
+  background-color: #333;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.tetimonals h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+  margin: 0 0 30px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+.tetimonals .ts-box {
+  position: relative;
+  z-index: 2;
+  width: calc(98% / 3);
+  float: left;
+  background-color: #fff;
+  padding: 20px;
+  font-size: 30px;
+  min-height: 350px;
+}
+.tetimonals .ts-box:not(:last-of-type) {
+  margin-right: 1%;
+}
+
+.tetimonals .ts-box > p {
+  margin: 0 0 20px;
+
+  /* text-indent: 25px; */
+  color: #707070;
+  line-height: 1.7;
+  font-style: italic;
+}
+.tetimonals .ts-box .person-info {
+  overflow: hidden;
+}
+.tetimonals .ts-box .person-info img {
+  width: 100px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 20px;
+}
+.tetimonals .ts-box .person-info h4 {
+  font-size: 20px;
+  margin: 13px 0 0 0px;
+}
+
+.tetimonals .ts-box .person-info p {
+  color: #777;
+  margin: 7px;
+}
+/* end tetimonals */
