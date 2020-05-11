@@ -221,12 +221,21 @@ myGallery.forEach((img) => {
     document.querySelector(".close-butn").addEventListener("click", (e) => {
       if ((e.target.className = "close-butn")) {
         // remove the current -popup
-       e.target.parentNode.remove();
+        e.target.parentNode.remove();
         // remove overlay
-       document.querySelector(".popup-overlay").remove();
+        document.querySelector(".popup-overlay").remove();
       }
     });
-    
   });
 });
-// close popup
+
+// select all bullits
+const allBullets = document.querySelectorAll(".nav-bullets .bullet");
+
+allBullets.forEach((bulet) => {
+  bulet.addEventListener("click", (e) => {
+    document.querySelector(e.target.dataset.section).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
