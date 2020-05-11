@@ -107,6 +107,40 @@ body {
 .setting-box .option-box button.active {
   opacity: 1;
 }
+/*end setting-box*/
+
+/* start nav-bullets */
+.nav-bullets {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  z-index: 1000;
+}
+.nav-bullets .bullet {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--main--color);
+  margin: 20px auto;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+.nav-bullets .bullet .tooltip {
+  background-color: var(--main--color);
+  color: #fff;
+  width: 120px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 40px;
+  top: -9px;
+ 
+
+}
+
+/* end nav-bullets */
+
 /*start setting-box*/
 
 .landing-page {
@@ -559,7 +593,6 @@ body {
 /* start tetimonals */
 
 .tetimonals {
- 
   position: relative;
   padding-top: 80px;
   padding-bottom: 80px;
