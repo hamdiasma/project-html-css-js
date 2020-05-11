@@ -109,7 +109,7 @@ function randomizeImages() {
     mySetInterval = setInterval(() => {
       let randomImage = Math.floor(Math.random() * myImageArray.length);
       landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
-    }, 1000);
+    }, 10000);
   }
 }
 randomizeImages();
@@ -229,6 +229,7 @@ myGallery.forEach((img) => {
   });
 });
 
+/* // when we have one select 
 // select all bullits
 const allBullets = document.querySelectorAll(".nav-bullets .bullet");
 
@@ -239,3 +240,20 @@ allBullets.forEach((bulet) => {
     });
   });
 });
+*/
+// when we have much links
+function scrollInto(myTarget) {
+  const allLinks = document.querySelectorAll(myTarget);
+
+  allLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(e.target.dataset.section).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+}
+
+scrollInto(".nav-bullets .bullet");
+scrollInto(".page a");
