@@ -261,12 +261,33 @@ function handelActive(ev) {
 // bullets options
 const bulletsOption = document.querySelectorAll(".option-bullets button");
 const bulletNav = document.querySelector(".nav-bullets");
+
+// chek local storage bulletsOption
+let bulletsStore = localStorage.getItem("bullet-store");
+
+if (bulletsStore !== null) {
+  bulletsOption.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  if (bulletsStore === "block") {
+    bulletNav.style.display = "block";
+    document.querySelector(".option-bullets .show").classList.add("active");
+  } else {
+    bulletNav.style.display = "none";
+    document.querySelector(".option-bullets .hide").classList.add("active");
+  }
+}
+
+
+
 bulletsOption.forEach((btn) => {
   btn.addEventListener("click", (ev) => {
     if (btn.dataset.bullet === "show") {
       bulletNav.style.display = "block";
+      localStorage.setItem("bullet-store", "block");
     } else {
       bulletNav.style.display = "none";
+      localStorage.setItem("bullet-store", "none");
     }
     handelActive(ev);
   });
