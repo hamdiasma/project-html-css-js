@@ -51,12 +51,8 @@ myColorsLi.forEach((li) => {
       li.getAttribute("value")
     );
     localStorage.setItem("storeColor", li.getAttribute("value"));
-    // remove all active classe from color list
-    li.parentElement.querySelectorAll(".color-list li").forEach((elment) => {
-      elment.classList.remove("active");
-    });
-    // add clsee active to the color in root
-    li.classList.add("active");
+
+    handelActive(li);
   });
 });
 
@@ -67,11 +63,7 @@ const myButtons = document.querySelectorAll(".option-box button");
 
 myButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    // remove all active class
-    btn.parentElement.querySelectorAll(".active").forEach((act) => {
-      act.classList.remove("active");
-    });
-    btn.classList.add("active");
+    handelActive(btn);
     if (btn.value === "yes") {
       //console.log("yes");
       bacgroundOption = true;
@@ -109,7 +101,7 @@ function randomizeImages() {
     mySetInterval = setInterval(() => {
       let randomImage = Math.floor(Math.random() * myImageArray.length);
       landngPage.style.backgroundImage = `url('assets/${myImageArray[randomImage]}')`;
-    }, 10000);
+    }, 1000);
   }
 }
 randomizeImages();
@@ -257,3 +249,11 @@ function scrollInto(myTarget) {
 
 scrollInto(".nav-bullets .bullet");
 scrollInto(".page a");
+// handel active statement
+function handelActive(ev) {
+  ev.parentElement.querySelectorAll(".active").forEach((act) => {
+    act.classList.remove("active");
+  });
+  // add active to btn
+  ev.classList.add("active");
+}
