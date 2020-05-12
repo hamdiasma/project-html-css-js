@@ -257,3 +257,17 @@ function handelActive(ev) {
   // add active to btn
   ev.classList.add("active");
 }
+
+// bullets options
+const bulletsOption = document.querySelectorAll(".option-bullets button");
+const bulletNav = document.querySelector(".nav-bullets");
+bulletsOption.forEach((btn) => {
+  btn.addEventListener("click", (ev) => {
+    if (btn.dataset.bullet === "show") {
+      bulletNav.style.display = "block";
+    } else {
+      bulletNav.style.display = "none";
+    }
+    handelActive(ev);
+  });
+});
