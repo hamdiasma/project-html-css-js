@@ -278,8 +278,6 @@ if (bulletsStore !== null) {
   }
 }
 
-
-
 bulletsOption.forEach((btn) => {
   btn.addEventListener("click", (ev) => {
     if (btn.dataset.bullet === "show") {
@@ -292,3 +290,16 @@ bulletsOption.forEach((btn) => {
     handelActive(ev);
   });
 });
+
+// reset button
+
+document.querySelector(".reset-options").onclick = function () {
+  // if we need to clear all ==> localStorage.clear();
+  let confirme = confirm("are yo shure to reset all ");
+  if (confirme === true) {
+    localStorage.removeItem("storeColor");
+    localStorage.removeItem("storeImage");
+    localStorage.removeItem("bullet-store");
+    window.location.reload();
+  }
+};
