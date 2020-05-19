@@ -295,15 +295,22 @@ bulletsOption.forEach((btn) => {
 
 document.querySelector(".reset-options").onclick = function () {
   // if we need to clear all ==> localStorage.clear();
-  let confirme = confirm("are yo shure to reset all ");
-  if (confirme === true) {
-    localStorage.removeItem("storeColor");
-    localStorage.removeItem("storeImage");
-    localStorage.removeItem("bullet-store");
-        // or local storage.clear()
-    window.location.reload();
-
-  } else {
-    false;
-  }
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be reset all!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Reset!",
+  }).then((result) => {
+    if (result.value) {
+      localStorage.removeItem("storeColor");
+      localStorage.removeItem("storeImage");
+      localStorage.removeItem("bullet-store");
+      // or local storage.clear()
+      window.location.reload();
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    }
+  });
 };
