@@ -300,6 +300,10 @@ document.querySelector(".reset-options").onclick = function () {
     localStorage.removeItem("storeColor");
     localStorage.removeItem("storeImage");
     localStorage.removeItem("bullet-store");
+        // or local storage.clear()
     window.location.reload();
+
+  } else {
+    false;
   }
 };
