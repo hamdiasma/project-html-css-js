@@ -194,6 +194,11 @@ body {
   height: 100%;
   z-index: 1;
 }
+/* autre methode toogle menu item beckame z-index 1000   
+.landing-page .container{
+  position: relative;
+  z-index: 1000;
+} */
 
 .landing-page .header-area {
   position: relative;
@@ -257,6 +262,7 @@ body {
   padding: 0 30px;
   line-height: 2;
 }
+
 .header-area .toggle-menu {
   background: none;
   border: none;
@@ -290,7 +296,7 @@ body {
   }
   .header-area ul.open {
     display: block;
-    background: rgba(255, 255, 255, 0.77);
+    background: white;
     width: 100%;
     position: absolute;
     padding: 5px;
@@ -298,6 +304,7 @@ body {
     top: 58px;
     margin-bottom: 20px;
     transition: all 0.5s ease-in-out;
+    border-radius: 5px;
   }
   .header-area ul.open li {
     display: block;
@@ -550,7 +557,18 @@ body {
   margin-bottom: 20px;
   position: relative;
 }
-
+@media (max-width: 774px) {
+  .timeline-content .left,
+  .timeline-content .right {
+    width: 100%;
+    margin-bottom: 20px;
+    z-index: 1;
+  }
+  .timeline-content .left::before,
+  .timeline-content .right::before {
+    display: none;
+  }
+}
 .timeline-content .left {
   float: left;
 }
@@ -717,6 +735,7 @@ body {
   text-align: left;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 .tetimonals .ts-box {
   position: relative;
@@ -742,12 +761,11 @@ body {
 }
 .tetimonals .ts-box .person-info {
   overflow: hidden;
+  text-align: center;
 }
 .tetimonals .ts-box .person-info img {
   width: 100px;
   border-radius: 50%;
-  float: left;
-  margin-right: 20px;
 }
 .tetimonals .ts-box .person-info h4 {
   font-size: 20px;
@@ -756,7 +774,7 @@ body {
 
 .tetimonals .ts-box .person-info p {
   color: #777;
-  margin: 7px;
+  font-size: 15px;
 }
 
 @media (max-width: 800px) {
@@ -771,6 +789,7 @@ body {
     margin: 10px auto;
     left: 50%;
     transform: translateX(-50%);
+   
   }
 }
 /* end tetimonals */
@@ -847,7 +866,15 @@ body {
   color: white;
   cursor: pointer;
 }
-
+@media(max-width:500px){
+  .contact form .left,
+  .contact form .right {
+    width: 70%;
+    margin-right: 1%;
+    margin: auto;
+    float: none;
+}
+}
 .contact form textarea:focus::-webkit-input-placeholder,
 .contact form input:focus::-webkit-input-placeholder {
   opacity: 0;
