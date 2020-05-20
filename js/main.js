@@ -314,3 +314,29 @@ document.querySelector(".reset-options").onclick = function () {
     }
   });
 };
+
+// toggle menue-item
+const togglebtn = document.querySelector(".toggle-menu");
+const theLinkes = document.querySelector(".page");
+const tarns = document.querySelector(".landing-page .introduction-text");
+togglebtn.onclick = function (e) {
+  // stop propagation
+  e.stopPropagation();
+  this.classList.toggle("active");
+  theLinkes.classList.toggle("open");
+  tarns.classList.toggle("translate");
+};
+// click outside button toogle
+document.addEventListener("click", (e) => {
+  if (e.target !== togglebtn && e.target !== theLinkes) {
+    if (theLinkes.classList.contains("open")) {
+      togglebtn.classList.toggle("active");
+      theLinkes.classList.toggle("open");
+      tarns.classList.toggle("translate");
+    }
+  }
+});
+//stop propagation on links
+theLinkes.onclick = function (e) {
+  e.stopPropagation();
+};

@@ -10,7 +10,6 @@ body {
 }
 
 .container {
-  width: 90%;
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
@@ -204,17 +203,19 @@ body {
 }
 
 .header-area .logo {
-  padding: 20px;
+  padding: 20px 20px 20px 10px;
   width: 300px;
   line-height: 50px;
   font-weight: bolder;
 }
+.header-area .links-container {
+  width: 100%;
+  text-align: right;
+}
 .header-area ul {
   list-style: none;
   padding: 20px;
-  width: 100%;
   line-height: 23px;
-  text-align: right;
 }
 
 .header-area ul li {
@@ -256,7 +257,64 @@ body {
   padding: 0 30px;
   line-height: 2;
 }
-
+.header-area .toggle-menu {
+  background: none;
+  border: none;
+  width: 40px;
+  cursor: pointer;
+  margin-top: 36px;
+  display: none;
+  position: relative;
+}
+.header-area .toggle-menu.active::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+.header-area .toggle-menu:focus {
+  outline: none;
+}
+.header-area .toggle-menu span {
+  display: block;
+  background-color: white;
+  height: 4px;
+  margin-bottom: 4px;
+}
+@media (max-width: 991px) {
+  .header-area ul {
+    display: none;
+  }
+  .header-area ul.open {
+    display: block;
+    background: rgba(255, 255, 255, 0.77);
+    width: 100%;
+    position: absolute;
+    padding: 5px;
+    left: 0;
+    top: 58px;
+    margin-bottom: 20px;
+    transition: all 0.5s ease-in-out;
+  }
+  .header-area ul.open li {
+    display: block;
+    margin: 10px;
+    text-align: left;
+  }
+  .header-area ul.open li a {
+    color: var(--main--color);
+  }
+  .header-area .toggle-menu {
+    display: inline-block;
+  }
+  .landing-page .introduction-text.translate {
+    transition: 0.5s;
+    margin-top: 150px;
+  }
+}
 /*end landing-page*/
 
 /*start about-us*/
@@ -789,6 +847,7 @@ body {
   color: white;
   cursor: pointer;
 }
+
 .contact form textarea:focus::-webkit-input-placeholder,
 .contact form input:focus::-webkit-input-placeholder {
   opacity: 0;
@@ -811,3 +870,27 @@ body {
 }
 
 /* end contact */
+
+/* grid system*/
+@media (min-width: 576px) {
+  /* small devices */
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+/* grid system*/
